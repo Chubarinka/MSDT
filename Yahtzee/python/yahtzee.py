@@ -1,5 +1,4 @@
 class Yahtzee:
-
     @staticmethod
     def chance(d1, d2, d3, d4, d5):
         total = 0
@@ -9,6 +8,7 @@ class Yahtzee:
         total += d4
         total += d5
         return total
+
 
     @staticmethod
     def yahtzee(dice):
@@ -20,6 +20,7 @@ class Yahtzee:
                 return 50
         return 0
     
+
     @staticmethod
     def ones( d1,  d2,  d3,  d4,  d5):
         sum = 0
@@ -52,6 +53,7 @@ class Yahtzee:
             sum += 2
         return sum
     
+
     @staticmethod
     def threes( d1,  d2,  d3,  d4,  d5):
         s = 0
@@ -66,7 +68,7 @@ class Yahtzee:
         if (d5 == 3):
             s += 3
         return s
-    
+
 
     def __init__(self, d1, d2, d3, d4, _5):
         self.dice = [0]*5
@@ -76,13 +78,14 @@ class Yahtzee:
         self.dice[3] = d4
         self.dice[4] = _5
     
+
     def fours(self):
         sum = 0
         for at in range(5):
             if (self.dice[at] == 4): 
                 sum += 4
         return sum
-    
+
 
     def fives(self):
         s = 0
@@ -91,7 +94,7 @@ class Yahtzee:
             if (self.dice[i] == 5):
                 s = s + 5
         return s
-    
+
 
     def sixes(self):
         sum = 0
@@ -100,6 +103,7 @@ class Yahtzee:
                 sum = sum + 6
         return sum
     
+
     @staticmethod
     def score_pair( d1,  d2,  d3,  d4,  d5):
         counts = [0]*6
@@ -114,6 +118,7 @@ class Yahtzee:
                 return (6-at)*2
         return 0
     
+
     @staticmethod
     def two_pair( d1,  d2,  d3,  d4,  d5):
         counts = [0]*6
@@ -134,6 +139,7 @@ class Yahtzee:
         else:
             return 0
     
+
     @staticmethod
     def four_of_a_kind( _1,  _2,  d3,  d4,  d5):
         tallies = [0]*6
@@ -146,7 +152,7 @@ class Yahtzee:
             if (tallies[i] == 4):
                 return (i+1) * 4
         return 0
-    
+
 
     @staticmethod
     def three_of_a_kind( d1,  d2,  d3,  d4,  d5):
@@ -160,7 +166,7 @@ class Yahtzee:
             if (t[i] == 3):
                 return (i+1) * 3
         return 0
-    
+
 
     @staticmethod
     def smallStraight( d1,  d2,  d3,  d4,  d5):
@@ -177,7 +183,7 @@ class Yahtzee:
             tallies[4] == 1):
             return 15
         return 0
-    
+
 
     @staticmethod
     def largeStraight( d1,  d2,  d3,  d4,  d5):
@@ -194,7 +200,7 @@ class Yahtzee:
             and tallies[5] == 1):
             return 20
         return 0
-    
+
 
     @staticmethod
     def fullHouse( d1,  d2,  d3,  d4,  d5):
@@ -216,14 +222,12 @@ class Yahtzee:
             if (tallies[i] == 2): 
                 _2 = True
                 _2_at = i+1
-            
 
         for i in range(6):
             if (tallies[i] == 3): 
                 _3 = True
                 _3_at = i+1
             
-
         if (_2 and _3):
             return _2_at * 2 + _3_at * 3
         else:
